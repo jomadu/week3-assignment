@@ -78,9 +78,9 @@ function App() {
     <Layout>
       <CardLayout>{cards}</CardLayout>
       <LikedLayout>
-        <h3>Liked:</h3>
-        <p>Cost: {totalCost}</p>
+        <h3>Shopping Cart:</h3>
         <ul>{liked}</ul>
+        <p>Cost: ${totalCost}</p>
       </LikedLayout>
     </Layout>
   );
