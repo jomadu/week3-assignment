@@ -12,6 +12,8 @@ const Card = styled.div`
   background-color: salmon;
   height: 500px;
   margin: 10px 0px 10px 0px;
+  border-radius: 15px;
+  overflow: hidden;
 `;
 const CardMedia = styled.div`
   width: 200px;
