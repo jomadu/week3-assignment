@@ -33,13 +33,12 @@ const LikedListItem = styled.div`
 
 function App() {
   const [likedIndicies, setLikedIndicies] = useState([]);
-  const indicies = [...Array(Airbnbs.length).keys()];
 
   const onLikeClickedHandler = (idx) => {
     return () => {
       if (likedIndicies.includes(idx)) {
         setLikedIndicies([
-          ...likedIndicies.filter((likedIdx) => idx != likedIdx),
+          ...likedIndicies.filter((likedIdx) => idx !== likedIdx),
         ]);
       } else {
         setLikedIndicies([...likedIndicies, idx]);
@@ -57,12 +56,11 @@ function App() {
   ));
 
   const liked = likedIndicies.map((idx) => {
-    console.log(idx);
     const airbnb = Airbnbs[idx];
 
     return (
-      <li>
-        <LikedListItem key={idx}>
+      <li key={idx}>
+        <LikedListItem>
           {airbnb.title}
           <AiFillDelete size={20} onClick={onLikeClickedHandler(idx)} />
         </LikedListItem>
@@ -80,7 +78,7 @@ function App() {
       <LikedLayout>
         <h3>Shopping Cart:</h3>
         <ul>{liked}</ul>
-        <p>Cost: ${totalCost}</p>
+        <p>Total Cost: ${totalCost} / night</p>
       </LikedLayout>
     </Layout>
   );
